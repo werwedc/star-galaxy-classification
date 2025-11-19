@@ -1,6 +1,6 @@
 ## Project Overview
 
-Binary classification of night-sky objects into stars and galaxies with an emphasis on coping with occasional null cells in photometric bands and their error estimates. The models consume magnitudes (`u`, `g`, `r`, `i`, `z`) and statistical errors
+Binary classification of night-sky objects into stars and galaxies. The models consume magnitudes (`u`, `g`, `r`, `i`, `z`) and statistical errors of these magnitudes
 
 Originally built as an internal university competition entry
 
@@ -16,4 +16,15 @@ Originally built as an internal university competition entry
 
 - Starts with the same tree trio.
 - Adds four specialist ANNs for the most frequent null signatures `['11111', '10111', '11110', '01111']`.
-- In practice, the solution with ANNs didn`t surpass the tree-only ensemble, but matched it
+
+### 3. Solo LGBM
+- Turned out to perform the best
+
+F1 score on test dataset
+| Approach     | F1 Score   |
+| -------------| ---------- |
+| Solo LGBM    | 0.8506     |
+| Solo XGBoost | 0.8473     |
+| Solo CatBoost| 0.8280 |
+| Trio Solution | 0.8486|
+| Trio Solution + 4 ANNs| 0.8483|
